@@ -8,8 +8,10 @@ OIFS="$IFS"
 IFS=$'\n'
 for FILE in `find . -type f -name "*.applescript"`; do
   echo "FILE: '${FILE}'"
-  OUTFILE=$(echo "$FILE" | sed 's/\.applescript$/.app/')
-  OUTFILE=$(echo "$OUTFILE" | sed 's/^.\/Scripts/~\/Applications/')
+  OUTFILE="$FILE"
+  OUTFILE=$(echo "$OUTFILE" | sed 's/\.applescript$/.app/')
+  OUTFILE=$(echo "$OUTFILE" | sed 's/^.\/Scripts//')
+  OUTFILE="$HOME/$OUTFILE"
   echo "OUT: '$OUTFILE'"
   OK="n"
   if [ -e "$OUTFILE" ]; then
@@ -20,7 +22,11 @@ for FILE in `find . -type f -name "*.applescript"`; do
   fi
   if [[ $OK = "y" ]]; then
     osacompile -o "$OUTFILE" "$FILE"
-    echo "Compiled \"$FILE\" to \"$OUTFILE\""
+    if [ $? -eq 0 ]; then
+      echo "Compiled \"$FILE\" to \"$OUTFILE\""
+    else
+      echo "Failed compile \"$FILE\" to \"$OUTFILE\""
+    fi
   else
     echo "Skipping \"$FILE\""
   fi
