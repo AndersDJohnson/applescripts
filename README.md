@@ -18,6 +18,14 @@ hln ~/Library/Scripts ~/.applescripts/Scripts
 hln ~/Library/Services ~/.applescripts/Services 
 ```
 
+### Build Apps
+
+Building apps will compile scripts under `./Scripts` to `~/Applications`,
+so for example you can then run them from Spotlight.
+
+```
+./build.sh
+```
 
 ## Inspiration
 * https://github.com/sparanoid/automator-workflows
