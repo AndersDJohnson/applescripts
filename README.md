@@ -10,7 +10,7 @@ git co https://github.com/AndersDJohnson/applescripts.git .applescripts
 If you want to store in standard locations, you can use hardlinks:
 
 ```
-brew install homebrew-osx
+brew install hardlink-osx
 ```
 
 ```
