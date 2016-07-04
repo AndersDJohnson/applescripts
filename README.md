@@ -7,6 +7,14 @@ My AppleScripts.
 git clone https://github.com/AndersDJohnson/applescripts.git .applescripts
 ```
 
+### Option 1: Copy
+
+```
+./install.sh
+```
+
+### Option 2: Hardlinks
+
 If you want to store in standard locations, you can use hardlinks:
 
 ```
