@@ -14,8 +14,11 @@ brew install hardlink-osx
 ```
 
 ```
-hln ~/Library/Scripts ~/.applescripts/Scripts
-hln ~/Library/Services ~/.applescripts/Services 
+cd ~/.applescripts
+rm -rf Scripts Services
+hln ~/Library/Scripts Scripts
+hln ~/Library/Services Services
+git reset --hard
 ```
 
 ### Build Apps
